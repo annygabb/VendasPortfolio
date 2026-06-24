@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth light-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anny Gabrielly | Sites Profissionais para o Seu Negócio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#ffffff', bgAlt: '#eaf2ff', bgCard: '#f0f7ff',
+                            blue: '#2563eb', blueLight: '#3b82f6', bluePale: '#cfe4ff',
+                            dark: '#0f172a', text: '#1e293b', muted: '#64748b',
+                        }
+                    },
+                    fontFamily: { heading: ['Space Grotesk','sans-serif'], body: ['Plus Jakarta Sans','sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --bg:#ffffff; --bg-alt:#eaf2ff; --bg-card:#f0f7ff;
+            --blue:#2563eb; --blue-light:#3b82f6; --blue-pale:#cfe4ff;
+            --dark:#0f172a; --text:#1e293b; --muted:#64748b;
+            --border:rgba(37,99,235,0.15); --border-strong:rgba(37,99,235,0.3);
+        }
+        html.dark-mode {
+            --bg:#050811; --bg-alt:#0b132b; --bg-card:#1c2541;
+            --blue:#3a86ff; --blue-light:#60a5fa; --blue-pale:#1c2541;
+            --dark:#f8fafc; --text:#e2e8f0; --muted:#94a3b8;
+            --border:rgba(58,134,255,0.18); --border-strong:rgba(58,134,255,0.4);
+        }
+        body { background-color:var(--bg); color:var(--text); }
+        html.dark-mode header { background:rgba(5,8,17,0.88)!important; border-bottom-color:rgba(58,134,255,0.15)!important; }
+        html.dark-mode .bg-grid-pattern { background-image:linear-gradient(to right,rgba(58,134,255,0.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(58,134,255,0.04) 1px,transparent 1px); }
+        html.dark-mode .bg-white { background-color:#0b132b!important; }
+        html.dark-mode .bg-blue-50 { background-color:rgba(58,134,255,0.08)!important; }
+        html.dark-mode .border-blue-100 { border-color:rgba(58,134,255,0.18)!important; }
+        html.dark-mode .text-brand-dark { color:#f1f5f9!important; }
+        html.dark-mode .text-brand-muted { color:#94a3b8!important; }
+        html.dark-mode footer { background-color:#050811!important; border-top-color:rgba(58,134,255,0.15)!important; }
+        html.dark-mode #mobile-menu { background-color:rgba(11,19,43,0.97)!important; }
+
+        .theme-toggle { position:relative; width:48px; height:26px; border-radius:9999px; background:rgba(37,99,235,0.1); border:1px solid rgba(37,99,235,0.25); cursor:pointer; flex-shrink:0; transition:background 0.3s ease; }
+        html.dark-mode .theme-toggle { background:rgba(58,134,255,0.15); border-color:rgba(58,134,255,0.35); }
+        .theme-toggle .knob { position:absolute; top:2px; left:2px; width:20px; height:20px; border-radius:50%; background:#2563eb; display:flex; align-items:center; justify-content:center; transition:transform 0.3s cubic-bezier(.4,0,.2,1); box-shadow:0 0 8px rgba(37,99,235,0.5); }
+        html.dark-mode .theme-toggle .knob { transform:translateX(20px); background:#3a86ff; }
+        .theme-toggle .knob svg { width:12px; height:12px; color:white; }
+
+        .bg-grid-pattern { background-size:40px 40px; background-image:linear-gradient(to right,rgba(37,99,235,0.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(37,99,235,0.06) 1px,transparent 1px); }
+        .glow-blue { box-shadow:0 0 30px rgba(37,99,235,0.12); }
+
+        /* AVAILABILITY */
+        .status-badge { animation:pulse-glow 2s ease-in-out infinite; }
+        .availability-badge { background:var(--blue); border:1px solid var(--blue); }
+        .availability-badge .availability-dot { background:#ffffff; }
+        .availability-badge .availability-text { color:#ffffff; }
+        @keyframes pulse-glow { 0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,0.3);} 50%{box-shadow:0 0 0 8px rgba(37,99,235,0);} }
+
+        /* NAV */
+        .nav-link { color:var(--muted); transition:color 0.2s; }
+        .nav-link:hover { color:var(--blue); }
+        header { background:rgba(255,255,255,0.85); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
+
+        /* BUTTONS */
+        .btn-primary { background:var(--blue); color:#fff; font-weight:600; border-radius:0.75rem; transition:background 0.2s,transform 0.2s,box-shadow 0.2s; box-shadow:0 4px 14px rgba(37,99,235,0.25); display:inline-block; }
+        .btn-primary:hover { background:#1d4ed8; transform:translateY(-1px); }
+        .btn-outline { border:1.5px solid var(--border-strong); color:var(--text); font-weight:600; border-radius:0.75rem; transition:border-color 0.2s,background 0.2s; display:inline-block; }
+        .btn-outline:hover { border-color:var(--blue); background:var(--bg-alt); }
+
+        /* PILL */
+        .pill { background:rgba(37,99,235,0.08); border:1px solid rgba(37,99,235,0.18); color:var(--muted); font-size:11px; border-radius:9999px; padding:3px 10px; }
+        .pill-dark { background:rgba(0,0,0,0.08); border:1px solid rgba(0,0,0,0.15); color:#1e293b; font-size:11px; border-radius:9999px; padding:3px 10px; }
+
+        /* CONTACT */
+        .contact-card { background:var(--bg-card); border:1px solid var(--border); border-radius:1rem; transition:border-color 0.3s,box-shadow 0.3s,transform 0.25s ease; }
+        .contact-card:hover { border-color:rgba(37,99,235,0.4); box-shadow:0 8px 24px rgba(37,99,235,0.1); transform:scale(1.05); }
+
+        /* IFRAME */
+        .iframe-bar { background:var(--bg-alt); border-bottom:1px solid var(--border); }
+        .iframe-loader { background:var(--bg-alt); }
+
+        /* NICHE TABS */
+        .niche-tab { cursor:pointer; padding:8px 20px; border-radius:9999px; font-size:13px; font-weight:600; border:1.5px solid var(--border); color:var(--muted); background:var(--bg); transition:all 0.2s ease; white-space:nowrap; }
+        .niche-tab:hover { border-color:var(--blue); color:var(--blue); }
+        .niche-tab.active { background:var(--blue); color:#fff; border-color:var(--blue); box-shadow:0 4px 14px rgba(37,99,235,0.25); }
+        html.dark-mode .niche-tab { background:var(--bg-card); }
+
+        /* CAROUSEL */
+        .carousel-track { display:flex; transition:transform 0.45s cubic-bezier(0.4,0,0.2,1); }
+        .carousel-slide { min-width:100%; }
+        .carousel-btn { width:44px; height:44px; border-radius:50%; background:var(--bg); border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all 0.2s; color:var(--muted); flex-shrink:0; }
+        .carousel-btn:hover { border-color:var(--blue); color:var(--blue); background:var(--bg-alt); }
+        .carousel-btn:disabled { opacity:0.3; cursor:default; }
+        .carousel-dot { width:8px; height:8px; border-radius:50%; background:var(--border-strong); transition:all 0.2s; cursor:pointer; }
+        .carousel-dot.active { background:var(--blue); width:24px; border-radius:9999px; }
+        html.dark-mode .carousel-btn { background:var(--bg-card); border-color:var(--border); }
+
+        /* BENEFIT CARDS - zoom on hover/click */
+        .benefit-card {
+            background:var(--bg-card); border:1px solid var(--border); border-radius:1.25rem;
+            padding:2rem; cursor:pointer;
+            transition:border-color 0.3s, box-shadow 0.3s, transform 0.3s cubic-bezier(.34,1.56,.64,1);
+        }
+        .benefit-card:hover, .benefit-card:focus-visible {
+            border-color:rgba(37,99,235,0.45); box-shadow:0 16px 40px rgba(37,99,235,0.15);
+            transform:scale(1.06) translateY(-4px);
+            z-index:10; position:relative;
+        }
+        .benefit-card:active { transform:scale(1.03); }
+        html.dark-mode .benefit-card { background:var(--bg-card); }
+
+        /* SECTION ALT */
+        .section-alt { background-color:var(--bg-alt); }
+
+        /* REVEAL */
+        .reveal { opacity:0; transform:translateY(32px); transition:opacity 0.55s cubic-bezier(0.4,0,0.2,1),transform 0.55s cubic-bezier(0.4,0,0.2,1); }
+        .reveal.visible { opacity:1; transform:translate(0,0); }
+
+        /* HERO BADGE PULSE */
+        @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+        .float-anim { animation:float 4s ease-in-out infinite; }
+
+        /* STATS COUNTER */
+        .stat-num { font-size:3rem; font-weight:800; color:var(--blue); line-height:1; }
+        .stat-label { color:var(--muted); font-size:0.875rem; margin-top:0.25rem; }
+
+        /* PROJECT CARD HOVER */
+        .project-card { transition:transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease; }
+        .project-card:hover { transform:translateY(-4px); box-shadow:0 20px 48px rgba(37,99,235,0.15); }
+
+        /* DARK CARD STYLES */
+        .dark-card-text { color:#0f172a; }
+        .dark-card-muted { color:#334155; }
+        .dark-card-pill { background:rgba(0,0,0,0.07); border:1px solid rgba(0,0,0,0.12); color:#1e293b; font-size:11px; border-radius:9999px; padding:3px 10px; }
+        .dark-card-link { color:#0f172a; font-weight:600; font-size:0.875rem; display:inline-flex; align-items:center; gap:0.35rem; transition:opacity 0.2s; }
+        .dark-card-link:hover { opacity:0.7; }
+
+        /* TESTIMONIAL */
+        .testimonial-card { background:var(--bg-card); border:1px solid var(--border); border-radius:1.25rem; padding:2rem; transition:border-color 0.3s,box-shadow 0.3s; }
+        .testimonial-card:hover { border-color:rgba(37,99,235,0.35); box-shadow:0 8px 24px rgba(37,99,235,0.1); }
+    </style>
+</head>
+<body class="font-body antialiased bg-grid-pattern selection:bg-blue-200 selection:text-blue-900">
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#inicio" class="flex items-center space-x-2 group">
+                <span class="font-heading font-bold text-xl md:text-2xl tracking-tight text-brand-dark group-hover:text-brand-blue transition-colors duration-300">
+                    annygabrielly<span class="text-brand-blue">_</span>
+                </span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#beneficios" class="nav-link">Benefícios</a>
+                <a href="#projetos" class="nav-link">Soluções</a>
+                <a href="#como-funciona" class="nav-link">Como funciona</a>
+                <a href="#contato" class="nav-link">Contato</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+                    <span class="knob">
+                        <svg id="theme-icon-sun" fill="currentColor" viewBox="0 0 24 24" class="hidden"><path d="M12 4.5a1 1 0 01-1-1V2a1 1 0 112 0v1.5a1 1 0 01-1 1zm0 17a1 1 0 01-1-1V19a1 1 0 112 0v1.5a1 1 0 01-1 1zM4.222 5.636a1 1 0 010-1.414l.707-.707a1 1 0 111.415 1.414l-.708.707a1 1 0 01-1.414 0zm14.142 14.142a1 1 0 010-1.414l.707-.707a1 1 0 111.415 1.414l-.708.707a1 1 0 01-1.414 0zM2 13a1 1 0 010-2h1.5a1 1 0 010 2H2zm17.5 0a1 1 0 010-2H21a1 1 0 010 2h-1.5zM4.93 19.778a1 1 0 01-1.415-1.414l.708-.707a1 1 0 111.414 1.414l-.707.707zM18.364 5.636a1 1 0 01-1.414-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707zM12 7a5 5 0 100 10 5 5 0 000-10z"/></svg>
+                        <svg id="theme-icon-moon" fill="currentColor" viewBox="0 0 24 24"><path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+                    </span>
+                </button>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-brand-text p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 border-b border-blue-100 px-6 py-6 space-y-4 absolute w-full top-20 left-0 shadow-lg">
+            <a href="#beneficios" class="block text-lg text-brand-text hover:text-brand-blue py-1">Benefícios</a>
+            <a href="#projetos" class="block text-lg text-brand-text hover:text-brand-blue py-1">Soluções</a>
+            <a href="#como-funciona" class="block text-lg text-brand-text hover:text-brand-blue py-1">Como funciona</a>
+            <a href="#contato" class="block text-lg text-brand-text hover:text-brand-blue py-1">Contato</a>
+            <div class="flex items-center justify-between pt-2 border-t border-blue-100">
+                <span class="text-sm text-brand-muted">Tema</span>
+                <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Alternar tema">
+                    <span class="knob">
+                        <svg class="theme-icon-sun-m hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5a1 1 0 01-1-1V2a1 1 0 112 0v1.5a1 1 0 01-1 1zm0 17a1 1 0 01-1-1V19a1 1 0 112 0v1.5a1 1 0 01-1 1zM4.222 5.636a1 1 0 010-1.414l.707-.707a1 1 0 111.415 1.414l-.708.707a1 1 0 01-1.414 0zm14.142 14.142a1 1 0 010-1.414l.707-.707a1 1 0 111.415 1.414l-.708.707a1 1 0 01-1.414 0zM2 13a1 1 0 010-2h1.5a1 1 0 010 2H2zm17.5 0a1 1 0 010-2H21a1 1 0 010 2h-1.5zM4.93 19.778a1 1 0 01-1.415-1.414l.708-.707a1 1 0 111.414 1.414l-.707.707zM18.364 5.636a1 1 0 01-1.414-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707zM12 7a5 5 0 100 10 5 5 0 000-10z"/></svg>
+                        <svg class="theme-icon-moon-m" fill="currentColor" viewBox="0 0 24 24"><path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO - CENTRALIZADO -->
+    <section id="inicio" class="pt-36 pb-24 md:pt-52 md:pb-40 relative overflow-hidden flex items-center">
+
+        <div class="max-w-5xl mx-auto px-6 w-full relative z-10 text-center">
+            <h1 class="font-heading font-bold text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight text-brand-dark mb-6">
+                Seu Negócio Merece um<br>
+                <em class="text-brand-blue not-italic">Site Profissional.</em>
+            </h1>
+
+            <p class="text-brand-dark font-bold text-xl md:text-2xl mb-4">Claro. Moderno. Eficaz. Lucrativo.</p>
+
+            <p class="text-brand-muted text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
+                Sem termos técnicos. Sem complicação. Apenas um site que apresenta seu negócio profissionalmente, carrega rápido em qualquer dispositivo e ajuda você a atrair mais clientes.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projetos" class="btn-primary px-10 py-4 text-base">Ver soluções</a>
+                <a href="https://wa.me/5562996616445?text=Quero%20um%20or%C3%A7amento%20personalizado" target="_blank" class="btn-outline px-10 py-4 text-base">Falar comigo agora</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section id="beneficios" class="py-24 section-alt relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-xs font-bold text-brand-blue uppercase tracking-widest font-heading">// Por que ter um site?</span>
+                <h2 class="text-3xl md:text-5xl font-bold font-heading mt-3 text-brand-dark">O que um bom site faz pelo seu negócio</h2>
+                <p class="text-brand-muted mt-4 max-w-xl mx-auto leading-relaxed">Clientes pesquisam online antes de comprar. Se você não aparece bem, perde para a concorrência.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="benefit-card reveal" tabindex="0">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-5 text-brand-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-brand-dark text-xl mb-2">Disponível 24 horas por dia</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Seu site trabalha enquanto você descansa. Clientes encontram suas informações, serviços e contato a qualquer hora do dia ou da noite.</p>
+                </div>
+
+                <div class="benefit-card reveal" tabindex="0">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-5 text-brand-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-brand-dark text-xl mb-2">Transmite credibilidade</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Um site profissional passa confiança. Clientes compram de quem parece sério e estabelecido, não de quem só tem link na bio do Instagram.</p>
+                </div>
+
+                <div class="benefit-card reveal" tabindex="0">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-5 text-brand-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-brand-dark text-xl mb-2">Mais clientes entrando em contato</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Botões de WhatsApp, formulário de contato e localização fácil de encontrar. Seu cliente não precisa procurar — basta clicar.</p>
+                </div>
+
+                <div class="benefit-card reveal" tabindex="0">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-5 text-brand-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-brand-dark text-xl mb-2">Perfeito no celular</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">A maioria dos clientes acessa pelo smartphone. Todos os sites que entrego funcionam lindamente em qualquer tamanho de tela, sem perder nenhum detalhe.</p>
+                </div>
+
+                <div class="benefit-card reveal" tabindex="0">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-5 text-brand-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-brand-dark text-xl mb-2">Carregamento ultrarrápido</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Sites lentos afastam clientes — 53% abandonam uma página que demora mais de 3 segundos. Trabalho com técnicas modernas para velocidade máxima.</p>
+                </div>
+
+                <div class="benefit-card reveal" tabindex="0">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-5 text-brand-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-brand-dark text-xl mb-2">Feito para o seu nicho</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Clínica, restaurante, advocacia, cafeteria ou tecnologia — cada segmento tem suas necessidades específicas. Desenvolvo pensando no seu cliente ideal.</p>
+                </div>
+
+                <div class="benefit-card reveal" tabindex="0">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-5 text-brand-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-brand-dark text-xl mb-2">Encontrado no Google</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Sites bem construídos aparecem nas buscas. Quando alguém pesquisa pelo seu tipo de serviço na sua cidade, seu negócio pode aparecer lá.</p>
+                </div>
+
+                <div class="benefit-card reveal" tabindex="0">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-5 text-brand-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-brand-dark text-xl mb-2">Identidade visual única</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Cores, fontes e layout alinhados com a personalidade do seu negócio. Seu site será reconhecível e memorável para quem visitar.</p>
+                </div>
+
+                <div class="benefit-card reveal" tabindex="0">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-5 text-brand-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-brand-dark text-xl mb-2">Suporte e atenção real</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Não é uma plataforma genérica. É uma desenvolvedora real acompanhando cada etapa, respondendo suas dúvidas e garantindo que ficou do jeito que você queria.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUÇÕES POR NICHO -->
+    <section id="projetos" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
+                <div>
+                    <span class="text-xs font-bold text-brand-blue uppercase tracking-widest font-heading">// Cases reais por segmento</span>
+                    <h2 class="text-3xl md:text-5xl font-bold font-heading mt-2 text-brand-dark">Soluções</h2>
+                </div>
+                <p class="text-brand-muted max-w-md mt-4 md:mt-0 leading-relaxed">Veja o que posso criar para o seu tipo de negócio. Cada segmento tem sua própria abordagem.</p>
+            </div>
+
+            <!-- NICHE TABS -->
+            <div class="flex flex-wrap gap-3 mb-10 reveal" id="niche-tabs">
+                <button class="niche-tab active" data-niche="all">🗂 Todos</button>
+                <button class="niche-tab" data-niche="saude">🏥 Saúde</button>
+                <button class="niche-tab" data-niche="alimentacao">🍽 Alimentação</button>
+                <button class="niche-tab" data-niche="advocacia">⚖️ Advocacia</button>
+                <button class="niche-tab" data-niche="cafeteria">☕ Cafeterias</button>
+                <button class="niche-tab" data-niche="tecnologia">💻 Tecnologia</button>
+            </div>
+
+            <!-- ALL VIEW -->
+            <div id="view-all" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+                <!-- SAÚDE: Casa Vida -->
+                <div class="project-card rounded-3xl border border-blue-200 overflow-hidden flex flex-col" style="background:#dbeafe;" data-niche="saude">
+                    <div class="p-7 space-y-4 flex-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-blue-800 bg-blue-100 border border-blue-300 px-3 py-1 rounded-full uppercase tracking-wider">🏥 Saúde</span>
+                            <span class="text-xs bg-green-50 border border-green-200 text-green-700 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">✅ Online</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-gray-900">Casa Vida</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">Clínica que une saúde mental e física. Visual acolhedor, foco em conversão de pacientes e 100% responsivo.</p>
+                        <div class="bg-blue-100 border border-blue-200 rounded-xl p-3">
+                            <p class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">✨ Ganhos deste projeto</p>
+                            <ul class="text-xs text-gray-700 space-y-0.5">
+                                <li>✓ Saiu das redes sociais para presença digital própria</li>
+                                <li>✓ Pacientes passaram a encontrar a clínica no Google</li>
+                                <li>✓ Agendamento via WhatsApp cresceu significativamente</li>
+                                <li>✓ Credibilidade e confiança percebidas pelos visitantes</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-xs font-bold text-gray-900 uppercase tracking-wider">Estrutura Padrão</p>
+                            <ul class="text-xs text-gray-700 space-y-0.5">
+                                <li>✓ Estrutura validada</li>
+                                <li>✓ SEO básico</li>
+                                <li>✓ Seções prontas</li>
+                                <li>✓ Mudança de cores, imagens, textos e identidade visual</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="dark-card-pill">Clínica</span>
+                            <span class="dark-card-pill">Responsivo</span>
+                            <span class="dark-card-pill">Layout Clean</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-blue-200 flex items-center justify-center" style="height:200px;background:#bfdbfe;">
+                        <div class="text-center space-y-3 p-8">
+                            <div class="text-5xl float-anim">🏥</div>
+                            <p class="font-heading font-bold text-gray-900 text-lg">Site para Clínica</p>
+                            <div class="flex flex-col sm:flex-row gap-2 justify-center items-center">
+                                <a href="https://sitecasavida.vercel.app/" target="_blank" class="text-xs font-semibold text-blue-800 hover:text-blue-900 transition-colors">Visitar ao vivo ↗</a>
+                                <a href="https://wa.me/5562996616445?text=Quero%20um%20or%C3%A7amento%20personalizado" target="_blank" class="inline-block btn-primary px-5 py-2 text-sm">Solicitar orçamento</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TECNOLOGIA: Portfólio Dev -->
+                <div class="project-card rounded-3xl border border-blue-200 overflow-hidden flex flex-col" style="background:#dbeafe;" data-niche="tecnologia">
+                    <div class="p-7 space-y-4 flex-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-blue-800 bg-blue-100 border border-blue-300 px-3 py-1 rounded-full uppercase tracking-wider">💻 Tecnologia</span>
+                            <span class="text-xs bg-green-50 border border-green-200 text-green-700 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">✅ Online</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-gray-900">Portfólio Dev</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">Site de portfólio para desenvolvedora. Design moderno, apresentação de projetos, seção de contato e dark mode integrado.</p>
+                        <div class="bg-blue-100 border border-blue-200 rounded-xl p-3">
+                            <p class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">✨ Ganhos deste projeto</p>
+                            <ul class="text-xs text-gray-700 space-y-0.5">
+                                <li>✓ Projetos centralizados em uma vitrine profissional</li>
+                                <li>✓ Substituiu links dispersos por uma presença sólida</li>
+                                <li>✓ Aumentou credibilidade na prospecção de clientes</li>
+                                <li>✓ Contato direto facilitado para quem visita o site</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-xs font-bold text-gray-900 uppercase tracking-wider">Estrutura Padrão</p>
+                            <ul class="text-xs text-gray-700 space-y-0.5">
+                                <li>✓ Estrutura validada</li>
+                                <li>✓ SEO básico</li>
+                                <li>✓ Seções prontas</li>
+                                <li>✓ Mudança de cores, imagens, textos e identidade visual</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="dark-card-pill">Portfólio</span>
+                            <span class="dark-card-pill">Dark Mode</span>
+                            <span class="dark-card-pill">Animações</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-blue-200 flex items-center justify-center" style="height:200px;background:#bfdbfe;">
+                        <div class="text-center space-y-3 p-8">
+                            <div class="text-5xl float-anim">💻</div>
+                            <p class="font-heading font-bold text-gray-900 text-lg">Site para Dev</p>
+                            <div class="flex flex-col sm:flex-row gap-2 justify-center items-center">
+                                <a href="https://portfolioanny.vercel.app/" target="_blank" class="text-xs font-semibold text-blue-800 hover:text-blue-900 transition-colors">Visitar ao vivo ↗</a>
+                                <a href="https://wa.me/5562996616445?text=Quero%20um%20or%C3%A7amento%20personalizado" target="_blank" class="inline-block btn-primary px-5 py-2 text-sm">Solicitar orçamento</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ALIMENTAÇÃO: Hamburgueria -->
+                <div class="project-card rounded-3xl border border-blue-200 overflow-hidden flex flex-col" style="background:#dbeafe;" data-niche="alimentacao">
+                    <div class="p-7 space-y-4 flex-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-blue-800 bg-blue-100 border border-blue-300 px-3 py-1 rounded-full uppercase tracking-wider">🍽 Alimentação</span>
+                            <span class="text-xs bg-brand-blue border border-blue-400 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Em desenvolvimento</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-gray-900">Hamburgueria</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">Cardápio online, botão de pedido via WhatsApp, galeria de pratos e endereço no mapa. Ideal para hamburguerias, lanchonetes e delivery.</p>
+                        <div class="space-y-1">
+                            <p class="text-xs font-bold text-gray-900 uppercase tracking-wider">Estrutura Padrão</p>
+                            <ul class="text-xs text-gray-700 space-y-0.5">
+                                <li>✓ Estrutura validada</li>
+                                <li>✓ SEO básico</li>
+                                <li>✓ Seções prontas</li>
+                                <li>✓ Mudança de cores, imagens, textos e identidade visual</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="dark-card-pill">Cardápio Online</span>
+                            <span class="dark-card-pill">WhatsApp</span>
+                            <span class="dark-card-pill">Mapa</span>
+                        </div>
+                        <a href="https://wa.me/5562996616445?text=Quero%20um%20or%C3%A7amento%20personalizado" target="_blank" class="dark-card-link">Quero um site assim <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+                    </div>
+                    <div class="border-t border-blue-200 flex items-center justify-center" style="height:200px;background:#bfdbfe;">
+                        <div class="text-center space-y-3 p-8">
+                            <div class="text-5xl float-anim">🍔</div>
+                            <p class="font-heading font-bold text-gray-900 text-lg">Site para Hamburgueria</p>
+                            <a href="https://wa.me/5562996616445?text=Quero%20um%20or%C3%A7amento%20personalizado" target="_blank" class="inline-block btn-primary px-5 py-2.5 text-sm">Solicitar orçamento</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADVOCACIA -->
+                <div class="project-card rounded-3xl border border-blue-200 overflow-hidden flex flex-col" style="background:#dbeafe;" data-niche="advocacia">
+                    <div class="p-7 space-y-4 flex-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-blue-800 bg-blue-100 border border-blue-300 px-3 py-1 rounded-full uppercase tracking-wider">⚖️ Advocacia</span>
+                            <span class="text-xs bg-brand-blue border border-blue-400 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Em desenvolvimento</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-gray-900">Escritório de Advocacia</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">Site sóbrio e profissional com áreas de atuação, perfil dos advogados, formulário de consulta e localização. Passa autoridade e confiança.</p>
+                        <div class="space-y-1">
+                            <p class="text-xs font-bold text-gray-900 uppercase tracking-wider">Estrutura Padrão</p>
+                            <ul class="text-xs text-gray-700 space-y-0.5">
+                                <li>✓ Estrutura validada</li>
+                                <li>✓ SEO básico</li>
+                                <li>✓ Seções prontas</li>
+                                <li>✓ Mudança de cores, imagens, textos e identidade visual</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="dark-card-pill">Áreas de Atuação</span>
+                            <span class="dark-card-pill">Formulário</span>
+                            <span class="dark-card-pill">Autoridade</span>
+                        </div>
+                        <a href="https://wa.me/5562996616445?text=Quero%20um%20or%C3%A7amento%20personalizado" target="_blank" class="dark-card-link">Quero um site assim <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+                    </div>
+                    <div class="border-t border-blue-200 flex items-center justify-center" style="height:200px;background:#bfdbfe;">
+                        <div class="text-center space-y-3 p-8">
+                            <div class="text-5xl float-anim">⚖️</div>
+                            <p class="font-heading font-bold text-gray-900 text-lg">Site para Advogado</p>
+                            <a href="https://wa.me/5562996616445?text=Quero%20um%20or%C3%A7amento%20personalizado" target="_blank" class="inline-block btn-primary px-5 py-2.5 text-sm">Solicitar orçamento</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAFETERIA -->
+                <div class="project-card rounded-3xl border border-blue-200 overflow-hidden flex flex-col" style="background:#dbeafe;" data-niche="cafeteria">
+                    <div class="p-7 space-y-4 flex-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-blue-800 bg-blue-100 border border-blue-300 px-3 py-1 rounded-full uppercase tracking-wider">☕ Cafeteria</span>
+                            <span class="text-xs bg-brand-blue border border-blue-400 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Em desenvolvimento</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-gray-900">Cafeteria &amp; Bistrô</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">Site charmoso com galeria de ambiente, cardápio de bebidas e produtos, horários de funcionamento e link para reservas ou pedidos.</p>
+                        <div class="space-y-1">
+                            <p class="text-xs font-bold text-gray-900 uppercase tracking-wider">Estrutura Padrão</p>
+                            <ul class="text-xs text-gray-700 space-y-0.5">
+                                <li>✓ Estrutura validada</li>
+                                <li>✓ SEO básico</li>
+                                <li>✓ Seções prontas</li>
+                                <li>✓ Mudança de cores, imagens, textos e identidade visual</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="dark-card-pill">Galeria</span>
+                            <span class="dark-card-pill">Cardápio</span>
+                            <span class="dark-card-pill">Reservas</span>
+                        </div>
+                        <a href="https://wa.me/5562996616445?text=Quero%20um%20or%C3%A7amento%20personalizado" target="_blank" class="dark-card-link">Quero um site assim <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+                    </div>
+                    <div class="border-t border-blue-200 flex items-center justify-center" style="height:200px;background:#bfdbfe;">
+                        <div class="text-center space-y-3 p-8">
+                            <div class="text-5xl float-anim">☕</div>
+                            <p class="font-heading font-bold text-gray-900 text-lg">Site para Cafeteria</p>
+                            <a href="https://wa.me/5562996616445?text=Quero%20um%20or%C3%A7amento%20personalizado" target="_blank" class="inline-block btn-primary px-5 py-2.5 text-sm">Solicitar orçamento</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TECNOLOGIA: Startup & SaaS -->
+                <div class="project-card rounded-3xl border border-blue-200 overflow-hidden flex flex-col" style="background:#dbeafe;" data-niche="tecnologia">
+                    <div class="p-7 space-y-4 flex-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-blue-800 bg-blue-100 border border-blue-300 px-3 py-1 rounded-full uppercase tracking-wider">💻 Tecnologia</span>
+                            <span class="text-xs bg-brand-blue border border-blue-400 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Em desenvolvimento</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-gray-900">Startup &amp; SaaS</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">Landing page de produto tech, startup ou serviço digital. Seção de funcionalidades, planos de preço, depoimentos e chamada para ação.</p>
+                        <div class="space-y-1">
+                            <p class="text-xs font-bold text-gray-900 uppercase tracking-wider">Estrutura Padrão</p>
+                            <ul class="text-xs text-gray-700 space-y-0.5">
+                                <li>✓ Estrutura validada</li>
+                                <li>✓ SEO básico</li>
+                                <li>✓ Seções prontas</li>
+                                <li>✓ Mudança de cores, imagens, textos e identidade visual</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="dark-card-pill">Landing Page</span>
+                            <span class="dark-card-pill">Planos</span>
+                            <span class="dark-card-pill">Conversão</span>
+                        </div>
+                        <a href="https://wa.me/5562996616445?text=Quero%20um%20or%C3%A7amento%20personalizado" target="_blank" class="dark-card-link">Quero um site assim <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+                    </div>
+                    <div class="border-t border-blue-200 flex items-center justify-center" style="height:200px;background:#bfdbfe;">
+                        <div class="text-center space-y-3 p-8">
+                            <div class="text-5xl float-anim">🚀</div>
+                            <p class="font-heading font-bold text-gray-900 text-lg">Site para Tech &amp; Startups</p>
+                            <a href="https://wa.me/5562996616445?text=Quero%20um%20or%C3%A7amento%20personalizado" target="_blank" class="inline-block btn-primary px-5 py-2.5 text-sm">Solicitar orçamento</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CAROUSEL VIEW (niche-filtered) -->
+            <div id="view-carousel" class="hidden">
+                <div class="overflow-hidden rounded-3xl" id="carousel-container">
+                    <div class="carousel-track" id="carousel-track"></div>
+                </div>
+                <div class="flex items-center justify-between mt-6">
+                    <button class="carousel-btn" id="carousel-prev" aria-label="Anterior">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <div class="flex items-center gap-2" id="carousel-dots"></div>
+                    <button class="carousel-btn" id="carousel-next" aria-label="Próximo">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+                <p class="text-center text-xs text-brand-muted mt-3" id="carousel-counter"></p>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-16 text-center reveal">
+                <div class="inline-block bg-blue-50 border border-blue-100 rounded-2xl px-8 py-6">
+                    <p class="text-brand-dark font-semibold text-lg mb-2">Não encontrou seu segmento?</p>
+                    <p class="text-brand-muted text-sm mb-4">Atendo qualquer tipo de negócio. Me manda uma mensagem e conversamos!</p>
+                    <a href="https://wa.me/5562996616445?text=Quero%20um%20or%C3%A7amento%20personalizado" target="_blank" class="btn-primary px-6 py-3">Falar sobre meu negócio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona" class="py-24 section-alt">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14 reveal">
+                <span class="text-xs font-bold text-brand-blue uppercase tracking-widest font-heading">// Simples assim</span>
+                <h2 class="text-3xl md:text-5xl font-bold font-heading mt-3 text-brand-dark">Como funciona</h2>
+                <p class="text-brand-muted mt-4 max-w-lg mx-auto">Do primeiro contato até seu site no ar, tudo de forma simples e transparente.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center space-y-4 reveal">
+                    <div class="w-14 h-14 bg-brand-blue rounded-2xl flex items-center justify-center mx-auto text-white text-2xl font-bold font-heading shadow-lg shadow-blue-200">1</div>
+                    <h3 class="font-heading font-bold text-brand-dark text-xl">Conversa inicial</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Você me conta sobre seu negócio, o que precisa e como quer se apresentar. Sem termos técnicos, sem complicação — só uma conversa direta.</p>
+                </div>
+                <div class="text-center space-y-4 reveal">
+                    <div class="w-14 h-14 bg-brand-blue rounded-2xl flex items-center justify-center mx-auto text-white text-2xl font-bold font-heading shadow-lg shadow-blue-200">2</div>
+                    <h3 class="font-heading font-bold text-brand-dark text-xl">Criação do site</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Desenvolvo seu site com foco na identidade do seu negócio. Você acompanha o progresso, vê resultados reais e sugere ajustes a qualquer momento.</p>
+                </div>
+                <div class="text-center space-y-4 reveal">
+                    <div class="w-14 h-14 bg-brand-blue rounded-2xl flex items-center justify-center mx-auto text-white text-2xl font-bold font-heading shadow-lg shadow-blue-200">3</div>
+                    <h3 class="font-heading font-bold text-brand-dark text-xl">Site no ar</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Seu site é publicado e começa a trabalhar por você imediatamente. Clientes te encontram, entram em contato e você cresce.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="py-24">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-6 relative z-10">
+            <div class="inline-flex items-center space-x-2">
+                <span class="w-6 h-px bg-brand-blue"></span>
+                <span class="text-xs font-bold text-brand-blue uppercase tracking-widest font-heading">Contato</span>
+                <span class="w-6 h-px bg-brand-blue"></span>
+            </div>
+            <h2 class="text-4xl md:text-6xl font-bold font-heading text-brand-dark tracking-tight">Vamos <em class="text-brand-blue not-italic">conversar.</em></h2>
+            <p class="text-brand-muted text-lg max-w-xl mx-auto leading-relaxed">Me conta sobre seu negócio. Sem compromisso, sem tecnicidade — só uma conversa simples sobre o que você precisa.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 text-left">
+                <a href="mailto:annygabbyoficial@gmail.com" class="group contact-card p-6 relative">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-[#ea4335] flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <svg class="w-4 h-4 text-brand-muted group-hover:text-brand-blue transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                    </div>
+                    <p class="text-[11px] font-mono text-brand-muted mb-1">// E-MAIL</p>
+                    <p class="font-bold text-brand-dark text-xs break-all">annygabbyoficial@gmail.com</p>
+                </a>
+                <a href="https://www.linkedin.com/in/annygabrielly/" target="_blank" class="group contact-card p-6 relative">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-[#0077b5] flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-1.337-.025-3.063-1.867-3.063-1.868 0-2.133 1.459-2.133 2.969v5.698h-3v-11h2.879v1.507h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v6.455z"/></svg>
+                        </div>
+                        <svg class="w-4 h-4 text-brand-muted group-hover:text-brand-blue transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                    </div>
+                    <p class="text-[11px] font-mono text-brand-muted mb-1">// LINKEDIN</p>
+                    <p class="font-bold text-brand-dark text-sm">linkedin.com/in/annygabrielly</p>
+                </a>
+                <a href="https://github.com/annygabb" target="_blank" class="group contact-card p-6 relative">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-brand-dark flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        </div>
+                        <svg class="w-4 h-4 text-brand-muted group-hover:text-brand-blue transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                    </div>
+                    <p class="text-[11px] font-mono text-brand-muted mb-1">// GITHUB</p>
+                    <p class="font-bold text-brand-dark text-sm">github.com/annygabb</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-blue-100 py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center gap-4 text-center">
+            <p class="font-heading font-bold text-lg text-brand-dark">annygabrielly<span class="text-brand-blue">_</span></p>
+            <p class="text-xs text-brand-muted">Sites profissionais para o seu negócio</p>
+            <p class="text-xs text-brand-muted">&copy; 2026 Anny Gabrielly. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) { mobileMenu.classList.remove('hidden'); hamburgerIcon.setAttribute('d','M6 18L18 6M6 6l12 12'); }
+            else { mobileMenu.classList.add('hidden'); hamburgerIcon.setAttribute('d','M4 6h16M4 12h16m-7 6h7'); }
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); hamburgerIcon.setAttribute('d','M4 6h16M4 12h16m-7 6h7'); });
+        });
+
+        // Theme toggle
+        (function() {
+            function applyTheme(isDark) {
+                if (isDark) { document.documentElement.classList.add('dark-mode'); document.documentElement.classList.remove('light-mode'); }
+                else { document.documentElement.classList.remove('dark-mode'); document.documentElement.classList.add('light-mode'); }
+                const sunIcon = document.getElementById('theme-icon-sun');
+                const moonIcon = document.getElementById('theme-icon-moon');
+                if (sunIcon) sunIcon.classList.toggle('hidden', !isDark);
+                if (moonIcon) moonIcon.classList.toggle('hidden', isDark);
+                document.querySelectorAll('.theme-icon-sun-m').forEach(el => el.classList.toggle('hidden', !isDark));
+                document.querySelectorAll('.theme-icon-moon-m').forEach(el => el.classList.toggle('hidden', isDark));
+                try { localStorage.setItem('anny-theme', isDark ? 'dark' : 'light'); } catch(e) {}
+            }
+            let storedTheme = null;
+            try { storedTheme = localStorage.getItem('anny-theme'); } catch(e) {}
+            applyTheme(storedTheme === 'dark');
+            function toggleTheme() { applyTheme(!document.documentElement.classList.contains('dark-mode')); }
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            const m = document.getElementById('theme-toggle-mobile');
+            if (m) m.addEventListener('click', toggleTheme);
+        })();
+
+        // NICHE TABS + CAROUSEL
+        (function() {
+            const tabs = document.querySelectorAll('.niche-tab');
+            const viewAll = document.getElementById('view-all');
+            const viewCarousel = document.getElementById('view-carousel');
+            const track = document.getElementById('carousel-track');
+            const dotsContainer = document.getElementById('carousel-dots');
+            const prevBtn = document.getElementById('carousel-prev');
+            const nextBtn = document.getElementById('carousel-next');
+            const counter = document.getElementById('carousel-counter');
+            let currentSlide = 0;
+            let slides = [];
+            const allCards = document.querySelectorAll('.project-card');
+
+            function buildCarousel(niche) {
+                const filtered = Array.from(allCards).filter(c => c.dataset.niche === niche);
+                if (!filtered.length) return;
+                track.innerHTML = '';
+                dotsContainer.innerHTML = '';
+                slides = filtered;
+                currentSlide = 0;
+                filtered.forEach((card, i) => {
+                    const slide = document.createElement('div');
+                    slide.className = 'carousel-slide';
+                    const clone = card.cloneNode(true);
+                    clone.style.width = '100%';
+                    slide.appendChild(clone);
+                    track.appendChild(slide);
+                    const dot = document.createElement('button');
+                    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                    dot.addEventListener('click', () => goTo(i));
+                    dotsContainer.appendChild(dot);
+                });
+                updateCarousel();
+            }
+
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === slides.length - 1;
+                counter.textContent = slides.length > 1 ? `${currentSlide + 1} de ${slides.length}` : '';
+            }
+
+            function goTo(i) { currentSlide = i; updateCarousel(); }
+
+            prevBtn.addEventListener('click', () => { if (currentSlide > 0) goTo(currentSlide - 1); });
+            nextBtn.addEventListener('click', () => { if (currentSlide < slides.length - 1) goTo(currentSlide + 1); });
+
+            // Swipe support
+            let startX = 0;
+            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+            track.addEventListener('touchend', e => {
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) { if (diff > 0 && currentSlide < slides.length - 1) goTo(currentSlide + 1); else if (diff < 0 && currentSlide > 0) goTo(currentSlide - 1); }
+            });
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    const niche = tab.dataset.niche;
+                    if (niche === 'all') {
+                        viewAll.classList.remove('hidden');
+                        viewCarousel.classList.add('hidden');
+                    } else {
+                        viewAll.classList.add('hidden');
+                        viewCarousel.classList.remove('hidden');
+                        buildCarousel(niche);
+                    }
+                });
+            });
+        })();
+
+        // Scroll reveal
+        (function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        })();
+    </script>
+</body>
+</html>
